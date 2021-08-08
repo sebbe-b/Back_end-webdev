@@ -1,0 +1,9 @@
+if len(querystr) == 3:
+    queryprep += "LOWER(faa) = $1"
+    queryargs = [querystr]
+elif len(querystr) == 4:
+    queryprep += "LOWER(icao) = $1"
+    queryargs = [querystr]
+else:
+    queryprep += "LOWER(airportname) LIKE $1"
+    queryargs = ['%' + querystr + '%']
